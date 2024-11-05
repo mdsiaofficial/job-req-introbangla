@@ -1,9 +1,9 @@
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import DataFetcher from './comp/DataFetcher'
 import Parent from './state-manage/Parent'
 import Parent2 from './performance/Parent2'
-import LazyComponent from './performance/LazyComponent'
+import LoadNow from './performance/LoadNow'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,15 +22,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <DataFetcher />
+      {/* <DataFetcher /> */}
       <Parent />
       <Parent2 />
 
-      {/* <div>
-        <Suspense fallback={<p>Loading...</p>}>
-          <LazyComponent />
-        </Suspense>
-      </div> */}
+      <LoadNow/>
+
     </>
   )
 }
