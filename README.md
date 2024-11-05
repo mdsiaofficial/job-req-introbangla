@@ -34,7 +34,7 @@
 - Indexes: Know when and how to use indexes to improve query performance.
 - Schema Design: Design schemas that are efficient and avoid deep nesting to enhance performance.
 
-## 6. MySQL Basics
+## 6. MySQL Basics [x]
 
 - SQL Queries: Master basic SQL queries like SELECT, INSERT, UPDATE, DELETE.
 - Joins: Learn how to use different types of joins (INNER, LEFT, RIGHT) to fetch related data from multiple tables.
