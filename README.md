@@ -27,7 +27,7 @@
 - Code Quality: Use tools like ESLint, Prettier, and Husky for linting, formatting, and pre-commit hooks.
 - Build Tools: Understand Webpack or Vite to optimize your project builds.
 
-## 5. MongoDB Basics
+## 5. MongoDB Basics [x]
 
 - Documents & Collections: Understand the structure of MongoDB, which stores data in BSON documents inside collections.
 - CRUD Operations: Learn the basics of insert, find, update, and delete operations.
@@ -49,4 +49,3 @@
 - Dependency Injection: If needed, implement dependency injection for better testability and flexibility.
 
 # *Practice these concepts by building small projects that utilize a modular structure, state management, and database integration. This will help you solidify your understanding.*
-
