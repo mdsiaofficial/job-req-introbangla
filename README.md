@@ -13,7 +13,7 @@
 - Dynamic Routing: Understand how to create dynamic routes and access route parameters using useParams.
 - Protected Routes: Implement authentication using protected routes to restrict access to certain parts of the application.
 
-## 3. Redux Toolkit
+## 3. Redux Toolkit [x]
 
 - Slices: Break down your global state into slices. Each slice manages a specific part of the state.
 - Async Thunks: Handle side effects like API calls using createAsyncThunk.
@@ -41,7 +41,7 @@
 - Indexes: Understand indexing and how it improves performance in MySQL databases.
 - Normalization: Practice normalizing database tables to reduce redundancy and maintain data integrity.
 
-## 7. Modular Project Structure
+## 7. Modular Project Structure [x]
 
 - Feature Modules: Divide your project into independent modules, each managing a specific feature.
 - Service Layer: Keep all API and business logic separate from your UI by creating service layers.
