@@ -3,45 +3,33 @@ import { useState } from 'react'
 import './App.css'
 import Counter from './components/Counter'
 import TotalCount from './components/TotalCount'
+import { useDispatch, useSelector } from 'react-redux'
+import { minus, plus } from './features/counters/countersSlice'
 
-const allCounters = [
-  { id: 1, value: 0 },
-  { id: 2, value: 0 },
-  { id: 3, value: 0 },
-  { id: 4, value: 0 },
-  { id: 5, value: 0 },
-  { id: 6, value: 0 },
-  { id: 7, value: 0 },
-  { id: 8, value: 0 },
-]
+// const allCounters = [
+//   { id: 1, value: 0 },
+//   { id: 2, value: 0 },
+//   { id: 3, value: 0 },
+//   { id: 4, value: 0 },
+//   { id: 5, value: 0 },
+//   { id: 6, value: 0 },
+//   { id: 7, value: 0 },
+//   { id: 8, value: 0 },
+// ]
 
 
 function App() {
-  const [counters, setCounters] = useState(allCounters)
+  const counters = useSelector( (state)=> state.counters )
+  const dispatch = useDispatch()
+
+  // const [counters, setCounters] = useState(allCounters)
   const total = counters.reduce((accu, curr) => accu + curr.value, 0)
+
   const handlePlus = (counterId) => {
-    const updatedCounters =counters.map((counter)=>{
-      if(counter.id === counterId) {
-        return {
-          ...counter,
-          value: counter.value + 1,
-        }
-      }
-      return counter
-    })
-    setCounters(updatedCounters)
+    dispatch(plus(counterId))
   }
   const handleMinus = (counterId) => {
-    const updatedCounters =counters.map((counter)=>{
-      if(counter.id === counterId) {
-        return {
-          ...counter,
-          value: counter.value - 1,
-        }
-      }
-      return counter
-    })
-    setCounters(updatedCounters)
+    dispatch(minus(counterId))
   }
 
   return (
@@ -65,9 +53,6 @@ function App() {
               onMinus={()=> handleMinus(counter.id)}/>
             ))
           }
-          {/* <Counter/>
-          <Counter/>
-          <Counter/> */}
           
         </div>
       </div>
