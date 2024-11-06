@@ -1,6 +1,5 @@
 const { Sequelize } = require("sequelize");
 
-
 const sqlz = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
@@ -10,6 +9,15 @@ const sqlz = new Sequelize(
     dialect: "mysql",
   }
 )
+
+// Error handling for the database connection
+sqlz.authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 const db = {}
 db.Sequelize = Sequelize

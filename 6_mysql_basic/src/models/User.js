@@ -1,4 +1,3 @@
-
 const User = (sqlz, DataTypes)=>{
   const userSchema = sqlz.define("User", {
     name:{
@@ -13,6 +12,16 @@ const User = (sqlz, DataTypes)=>{
     password:{
       type:DataTypes.STRING,
       allowNull:false,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     }
   })
   return userSchema

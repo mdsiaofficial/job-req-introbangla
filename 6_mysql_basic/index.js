@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 
-db.sequelize.sync()
+db.sqlz.sync()
   .then(() => console.log('Database connected and synced'))
   .catch((err) => console.error('Error syncing database:', err));
 
@@ -18,6 +18,6 @@ db.sequelize.sync()
   app.use('/api/v1', userRouter)
   
   // server
-  app.listen(port, () => {
+  app.listen(PORT, () => {
     console.log(`Server is running on port http://localhost:${port}`)
   })
