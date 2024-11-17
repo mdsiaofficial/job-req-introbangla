@@ -1,23 +1,33 @@
 const express = require('express')
-const dotenv = require('dotenv');
-dotenv.config()
-
-const db = require('./src/models/db');
-const userRouter = require('./src/routes/userRouter');
-const app = express();
-const PORT = process.env.PORT || 5000;
+const mysql = require('mysql')
 
 
-db.sqlz.sync()
-  .then(() => console.log('Database connected and synced'))
-  .catch((err) => console.error('Error syncing database:', err));
+const app = express()
+const PORT = process.env.PORT || 5000
 
-  app.get('/', (req, res) => {
-    res.status(200).json({ message: "home" })
+const db = mysql.createConnection(
+  {
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "test"
+  }
+)
+
+app.get('/', (req, res) => {
+  res.status(200).json({ message: "home" })
+})
+app.get("/api/v1", (req, res) => {
+  const sql = "SELECT * FROM users"
+  db.query(sql, (err, data) => {
+    if (err) {
+      return res.status(404).json({ message: "Data not found.", error: err })
+    }
   })
-  app.use('/api/v1', userRouter)
-  
-  // server
-  app.listen(PORT, () => {
-    console.log(`Server is running on port http://localhost:${port}`)
-  })
+})
+// app.use('/api/v1', userRouter)
+
+// server
+app.listen(PORT, () => {
+  console.log(`Server is running on port http://localhost:${PORT}`)
+})
